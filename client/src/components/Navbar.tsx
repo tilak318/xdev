@@ -31,12 +31,12 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <div className="h-8 w-8 rounded-lg bg-gradient-to-r from-primary to-secondary flex items-center justify-center">
-              <span className="text-white font-bold text-xl">x</span>
+          <Link to="/" className="flex items-center space-x-3">
+            <div className="h-10 w-10 rounded-lg bg-gradient-to-r from-primary to-secondary flex items-center justify-center">
+              <span className="text-white font-bold text-2xl">x</span>
             </div>
-            <span className="text-xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              xDev
+            <span className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+              xDev Solutions
             </span>
           </Link>
 
@@ -46,21 +46,18 @@ const Navbar = () => {
               <Link
                 key={item.name}
                 to={item.path}
-                className={`relative text-sm font-medium transition-colors duration-300 ${
+                className={`relative text-base font-medium transition-all duration-300 ${
                   location.pathname === item.path
                     ? 'text-secondary'
                     : 'text-gray-600 hover:text-secondary'
                 }`}
               >
                 {item.name}
-                <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-secondary transform scale-x-0 transition-transform duration-300 ${
+                <span className={`absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-primary to-secondary transform scale-x-0 transition-transform duration-300 rounded-full ${
                   location.pathname === item.path ? 'scale-x-100' : 'group-hover:scale-x-100'
                 }`} />
               </Link>
             ))}
-            <button className="px-4 py-2 bg-gradient-to-r from-primary to-secondary text-white rounded-full text-sm font-medium hover:shadow-lg transition-all duration-300 hover:scale-105">
-              Get Started
-            </button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -81,9 +78,9 @@ const Navbar = () => {
               <Link
                 key={item.name}
                 to={item.path}
-                className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-300 ${
+                className={`block px-4 py-3 rounded-lg text-base font-medium transition-all duration-300 ${
                   location.pathname === item.path
-                    ? 'bg-secondary/10 text-secondary'
+                    ? 'bg-gradient-to-r from-primary/10 to-secondary/10 text-secondary shadow-sm'
                     : 'text-gray-600 hover:bg-gray-50 hover:text-secondary'
                 }`}
                 onClick={() => setIsMobileMenuOpen(false)}
@@ -91,9 +88,6 @@ const Navbar = () => {
                 {item.name}
               </Link>
             ))}
-            <button className="w-full mt-4 px-4 py-2 bg-gradient-to-r from-primary to-secondary text-white rounded-full text-sm font-medium hover:shadow-lg transition-all duration-300 hover:scale-105">
-              Get Started
-            </button>
           </div>
         </div>
       </div>
