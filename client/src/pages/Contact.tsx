@@ -184,7 +184,7 @@ const Contact = () => {
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className={`text-center transition-all duration-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+        <div className={`text-center transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
           <h1 className="text-4xl md:text-5xl font-montserrat font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent mb-6">
             Contact Us
           </h1>
@@ -194,71 +194,67 @@ const Contact = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
-          <div className={`transition-all duration-1000 delay-300 ${isVisible ? 'translate-x-0 opacity-100' : 'translate-x-[-50px] opacity-0'}`}>
+          <div className={`transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
             <h2 className="text-2xl md:text-3xl font-montserrat font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent mb-6">Get in Touch</h2>
             <p className="text-gray-600 mb-8">
               Have a question or want to discuss your project? We'd love to hear from you. Fill out the form below and we'll get back to you as soon as possible.
             </p>
             <div className="space-y-6">
-              <Card className="group overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500 relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-secondary/10 to-accent/5 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left"></div>
-                <CardContent className="p-6 relative z-10">
+              <Card className="overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-300">
+                <CardContent className="p-6">
                   <div className="flex items-start">
-                    <div className="h-12 w-12 rounded-full bg-gradient-to-br from-primary/30 via-secondary/30 to-accent/30 flex items-center justify-center mr-4 group-hover:bg-gradient-to-br group-hover:from-primary/40 group-hover:via-secondary/40 group-hover:to-accent/40 transition-all duration-500 group-hover:scale-110">
-                      <Mail className="h-6 w-6 text-secondary group-hover:text-primary transition-colors duration-500" />
+                    <div className="h-12 w-12 rounded-full bg-gradient-to-br from-primary/30 via-secondary/30 to-accent/30 flex items-center justify-center mr-4">
+                      <Mail className="h-6 w-6 text-secondary" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-primary group-hover:text-secondary transition-colors duration-500 mb-1">Email</h3>
-                      <p className="text-gray-600 group-hover:text-gray-800 transition-colors duration-500">info@xdevsolutions.com</p>
-                      <p className="text-gray-600 group-hover:text-gray-800 transition-colors duration-500">support@xdevsolutions.com</p>
+                      <h3 className="font-semibold text-primary mb-1">Email</h3>
+                      <p className="text-gray-600">info@xdevsolutions.com</p>
+                      <p className="text-gray-600">support@xdevsolutions.com</p>
                     </div>
                   </div>
                 </CardContent>
               </Card>
 
-              <Card className="group overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500 relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-secondary/10 to-accent/5 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left"></div>
-                <CardContent className="p-6 relative z-10">
+              <Card className="overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-300">
+                <CardContent className="p-6">
                   <div className="flex items-start">
-                    <div className="h-12 w-12 rounded-full bg-gradient-to-br from-primary/30 via-secondary/30 to-accent/30 flex items-center justify-center mr-4 group-hover:bg-gradient-to-br group-hover:from-primary/40 group-hover:via-secondary/40 group-hover:to-accent/40 transition-all duration-500 group-hover:scale-110">
-                      <Phone className="h-6 w-6 text-secondary group-hover:text-primary transition-colors duration-500" />
+                    <div className="h-12 w-12 rounded-full bg-gradient-to-br from-primary/30 via-secondary/30 to-accent/30 flex items-center justify-center mr-4">
+                      <Phone className="h-6 w-6 text-secondary" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-primary group-hover:text-secondary transition-colors duration-500 mb-1">Phone</h3>
-                      <p className="text-gray-600 group-hover:text-gray-800 transition-colors duration-500">+1 (555) 123-4567</p>
-                      <p className="text-gray-600 group-hover:text-gray-800 transition-colors duration-500">+1 (555) 765-4321</p>
+                      <h3 className="font-semibold text-primary mb-1">Phone</h3>
+                      <p className="text-gray-600">+1 (555) 123-4567</p>
+                      <p className="text-gray-600">+1 (555) 765-4321</p>
                     </div>
                   </div>
                 </CardContent>
               </Card>
 
-              <Card className="group overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500 relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-secondary/10 to-accent/5 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left"></div>
-                <CardContent className="p-6 relative z-10">
+              <Card className="overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-300">
+                <CardContent className="p-6">
                   <div className="flex items-start">
-                    <div className="h-12 w-12 rounded-full bg-gradient-to-br from-primary/30 via-secondary/30 to-accent/30 flex items-center justify-center mr-4 group-hover:bg-gradient-to-br group-hover:from-primary/40 group-hover:via-secondary/40 group-hover:to-accent/40 transition-all duration-500 group-hover:scale-110">
-                      <MapPin className="h-6 w-6 text-secondary group-hover:text-primary transition-colors duration-500" />
+                    <div className="h-12 w-12 rounded-full bg-gradient-to-br from-primary/30 via-secondary/30 to-accent/30 flex items-center justify-center mr-4">
+                      <MapPin className="h-6 w-6 text-secondary" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-primary group-hover:text-secondary transition-colors duration-500 mb-1">Location</h3>
-                      <p className="text-gray-600 group-hover:text-gray-800 transition-colors duration-500">123 Innovation Drive</p>
-                      <p className="text-gray-600 group-hover:text-gray-800 transition-colors duration-500">San Francisco, CA 94105</p>
+                      <h3 className="font-semibold text-primary mb-1">Location</h3>
+                      <p className="text-gray-600">123 Innovation Drive</p>
+                      <p className="text-gray-600">San Francisco, CA 94105</p>
                     </div>
                   </div>
                 </CardContent>
               </Card>
               
-              <Card className="group overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500 relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-secondary/10 to-accent/5 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left"></div>
-                <CardContent className="p-6 relative z-10">
+              <Card className="overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-300">
+                <CardContent className="p-6">
                   <div className="flex items-start">
-                    <div className="h-12 w-12 rounded-full bg-gradient-to-br from-primary/30 via-secondary/30 to-accent/30 flex items-center justify-center mr-4 group-hover:bg-gradient-to-br group-hover:from-primary/40 group-hover:via-secondary/40 group-hover:to-accent/40 transition-all duration-500 group-hover:scale-110">
-                      <Clock className="h-6 w-6 text-secondary group-hover:text-primary transition-colors duration-500" />
+                    <div className="h-12 w-12 rounded-full bg-gradient-to-br from-primary/30 via-secondary/30 to-accent/30 flex items-center justify-center mr-4">
+                      <Clock className="h-6 w-6 text-secondary" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-primary group-hover:text-secondary transition-colors duration-500 mb-1">Business Hours</h3>
-                      <p className="text-gray-600 group-hover:text-gray-800 transition-colors duration-500">Monday - Friday: 9:00 AM - 6:00 PM</p>
-                      <p className="text-gray-600 group-hover:text-gray-800 transition-colors duration-500">Saturday - Sunday: Closed</p>
+                      <h3 className="font-semibold text-primary mb-1">Business Hours</h3>
+                      <p className="text-gray-600">Monday - Friday: 9:00 AM - 6:00 PM</p>
+                      <p className="text-gray-600">Saturday - Sunday: Closed</p>
                     </div>
                   </div>
                 </CardContent>
@@ -266,7 +262,7 @@ const Contact = () => {
             </div>
           </div>
 
-          <div className={`bg-white rounded-2xl shadow-lg p-8 transition-all duration-1000 delay-500 ${isVisible ? 'translate-x-0 opacity-100' : 'translate-x-[50px] opacity-0'}`}>
+          <div className={`bg-white rounded-2xl shadow-lg p-8 transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
             <h2 className="text-2xl md:text-3xl font-montserrat font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent mb-6">Send Us a Message</h2>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid gap-6 sm:grid-cols-2">

@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
+import { useMobileMenu } from '@/context/MobileMenuContext';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { isMobileMenuOpen, setIsMobileMenuOpen } = useMobileMenu();
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const location = useLocation();
 
@@ -72,15 +73,19 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Menu */}
-        <div className={`md:hidden transition-all duration-300 ease-in-out ${
-          isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-        } overflow-hidden`}>
-          <div className="px-2 pt-2 pb-3 space-y-1">
+        <div 
+          className={`md:hidden absolute left-0 right-0 top-16 bg-white shadow-lg transition-all duration-300 ease-in-out ${
+            isMobileMenuOpen 
+              ? 'opacity-100 visible translate-y-0' 
+              : 'opacity-0 invisible -translate-y-4 pointer-events-none'
+          }`}
+        >
+          <div className="px-4 py-4 space-y-2">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 to={item.path}
-                className={`block px-4 py-3 rounded-lg text-base font-medium transition-all duration-300 ${
+                className={`block px-4 py-3 rounded-lg text-lg font-medium transition-all duration-300 ${
                   location.pathname === item.path
                     ? 'bg-gradient-to-r from-primary/10 to-secondary/10 text-secondary shadow-sm'
                     : 'text-gray-600 hover:bg-gray-50 hover:text-secondary'
