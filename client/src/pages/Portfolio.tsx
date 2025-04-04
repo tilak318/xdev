@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { ExternalLink, ArrowRight } from 'lucide-react';
@@ -115,17 +114,17 @@ const Portfolio = () => {
           ))}
         </div>
 
-        <div className={`bg-gradient-to-r from-primary to-secondary rounded-2xl p-8 md:p-12 text-white text-center transition-all duration-1000 delay-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[20px]'}`}>
-          <h2 className="text-2xl md:text-3xl font-montserrat font-bold mb-6">Have a Project in Mind?</h2>
-          <p className="max-w-2xl mx-auto mb-8">
+        <div className={`bg-gradient-to-r from-primary/10 via-secondary/10 to-accent/10 rounded-2xl p-8 md:p-12 text-center transition-all duration-1000 delay-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[20px]'}`}>
+          <h2 className="text-2xl md:text-3xl font-montserrat font-bold text-primary mb-6">Have a Project in Mind?</h2>
+          <p className="max-w-2xl mx-auto mb-8 text-gray-600">
             Let's collaborate to bring your vision to life with our expertise in cutting-edge technologies.
           </p>
           <a 
             href="/contact" 
-            className="inline-flex items-center px-6 py-3 bg-white text-secondary rounded-md font-medium hover:bg-accent hover:text-white transition-all duration-300 group"
+            className="inline-flex items-center px-6 py-2.5 bg-gradient-to-r from-primary to-secondary text-white rounded-full text-base font-medium hover:shadow-lg transition-all duration-300 hover:scale-105"
           >
-            Start a Project
-            <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+            Get Started
+            <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform duration-500" />
           </a>
         </div>
       </div>
