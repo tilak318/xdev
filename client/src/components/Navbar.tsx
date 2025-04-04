@@ -53,10 +53,17 @@ const Navbar = () => {
             <div className="md:hidden">
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="text-gray-700 hover:text-secondary transition-colors"
+                className="group text-gray-700 hover:text-secondary transition-colors"
                 aria-label="Toggle menu"
               >
-                {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                {isMobileMenuOpen ? (
+                  <X size={24} className="text-white" />
+                ) : (
+                  <Menu 
+                    size={24} 
+                    className="bg-gradient-to-r from-secondary via-accent to-secondary bg-clip-text text-transparent" 
+                  />
+                )}
               </button>
             </div>
           </div>
@@ -65,13 +72,13 @@ const Navbar = () => {
 
       {/* Fullscreen Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 bg-black z-50 flex flex-col items-center justify-center md:hidden">
+        <div className="fixed inset-0 bg-white z-50 flex flex-col items-center justify-center md:hidden">
           <button
             onClick={() => setIsMobileMenuOpen(false)}
-            className="absolute top-4 right-4 text-white hover:text-secondary transition-colors"
+            className="absolute top-4 right-4 text-secondary hover:text-accent transition-colors"
             aria-label="Close menu"
           >
-            <X size={24} />
+            <X size={24} className="bg-gradient-to-r from-secondary via-accent to-secondary bg-clip-text text-transparent" />
           </button>
           
           <div className="flex flex-col items-center space-y-8">
@@ -79,7 +86,7 @@ const Navbar = () => {
               <Link
                 key={item.path}
                 to={item.path}
-                className="font-montserrat text-2xl font-medium text-white hover:text-secondary transition-colors"
+                className="font-montserrat text-2xl font-medium bg-gradient-to-r from-secondary via-accent to-secondary bg-clip-text text-transparent"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {item.title}
