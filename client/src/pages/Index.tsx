@@ -7,6 +7,15 @@ import { motion } from 'framer-motion';
 
 // 3D Model Component
 function Model() {
+  const [time, setTime] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTime((prev) => prev + 0.01);
+    }, 16);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <Float
       speed={1.5}
@@ -14,10 +23,160 @@ function Model() {
       floatIntensity={2}
       floatingRange={[0, 0.5]}
     >
-      <mesh>
-        <torusKnotGeometry args={[1, 0.3, 128, 16]} />
-        <meshNormalMaterial />
-      </mesh>
+      <group>
+        {/* Digital Core */}
+        <group position={[0, 0, 0]}>
+          {/* Main Processor */}
+          <mesh>
+            <boxGeometry args={[1.5, 1.5, 1.5]} />
+            <meshStandardMaterial 
+              color="#f3f4f6"
+              metalness={0.2}
+              roughness={0.8}
+              transparent
+              opacity={0.15}
+              wireframe
+            />
+          </mesh>
+          
+          {/* Circuit Lines */}
+          {Array.from({ length: 6 }).map((_, i) => (
+            <mesh 
+              key={i}
+              position={[0, 0, 0]}
+              rotation={[i * Math.PI / 3, 0, 0]}
+            >
+              <planeGeometry args={[2, 2]} />
+              <meshStandardMaterial 
+                color="#e5e7eb"
+                metalness={0.1}
+                roughness={0.9}
+                transparent
+                opacity={0.1}
+                wireframe
+              />
+            </mesh>
+          ))}
+        </group>
+
+        {/* Digital Network */}
+        {Array.from({ length: 8 }).map((_, i) => (
+          <group 
+            key={i}
+            position={[
+              Math.cos(i * Math.PI / 4) * 2.5,
+              Math.sin(i * Math.PI / 4) * 2.5,
+              Math.sin(i * Math.PI / 4) * 0.5
+            ]}
+            rotation={[time * 0.2, time * 0.3, time * 0.1]}
+          >
+            {/* Network Node */}
+            <mesh>
+              <boxGeometry args={[0.3, 0.3, 0.3]} />
+              <meshStandardMaterial 
+                color="#f3f4f6"
+                metalness={0.1}
+                roughness={0.9}
+                transparent
+                opacity={0.1}
+                wireframe
+              />
+            </mesh>
+            
+            {/* Data Lines */}
+            <mesh rotation={[0, i * Math.PI / 4 + time * 0.2, 0]}>
+              <cylinderGeometry args={[0.01, 0.01, 2.5, 8]} />
+              <meshStandardMaterial 
+                color="#e5e7eb"
+                metalness={0.1}
+                roughness={0.9}
+                transparent
+                opacity={0.05}
+              />
+            </mesh>
+          </group>
+        ))}
+
+        {/* Binary Data Stream */}
+        {Array.from({ length: 20 }).map((_, i) => (
+          <mesh 
+            key={i}
+            position={[
+              Math.sin(i * Math.PI / 10 + time) * 3.5,
+              Math.cos(i * Math.PI / 10 + time) * 3.5,
+              Math.sin(i * Math.PI / 10 + time) * 0.5
+            ]}
+          >
+            <boxGeometry args={[0.1, 0.1, 0.1]} />
+            <meshStandardMaterial 
+              color="#f3f4f6"
+              metalness={0.1}
+              roughness={0.9}
+              transparent
+              opacity={0.2}
+            />
+          </mesh>
+        ))}
+
+        {/* Circuit Board Pattern */}
+        <mesh position={[0, 0, -2]} rotation={[0, time * 0.1, 0]}>
+          <gridHelper args={[10, 20, '#f3f4f6', '#e5e7eb']} />
+          <meshStandardMaterial 
+            transparent
+            opacity={0.03}
+            wireframe
+          />
+        </mesh>
+
+        {/* Digital Connections */}
+        {Array.from({ length: 12 }).map((_, i) => (
+          <mesh 
+            key={i}
+            position={[0, 0, 0]}
+            rotation={[0, i * Math.PI / 6 + time * 0.2, 0]}
+          >
+            <torusGeometry args={[2, 0.01, 8, 100]} />
+            <meshStandardMaterial 
+              color="#e5e7eb"
+              metalness={0.1}
+              roughness={0.9}
+              transparent
+              opacity={0.05}
+            />
+          </mesh>
+        ))}
+
+        {/* Data Points */}
+        {Array.from({ length: 30 }).map((_, i) => (
+          <mesh 
+            key={i}
+            position={[
+              Math.cos(i * Math.PI / 15) * 3,
+              Math.sin(i * Math.PI / 15) * 3,
+              Math.sin(i * Math.PI / 15) * 0.5
+            ]}
+          >
+            <sphereGeometry args={[0.02, 8, 8]} />
+            <meshStandardMaterial 
+              color="#f3f4f6"
+              metalness={0.1}
+              roughness={0.9}
+              transparent
+              opacity={0.15}
+            />
+          </mesh>
+        ))}
+
+        {/* Digital Grid */}
+        <mesh position={[0, 0, -3]} rotation={[0, time * 0.1, 0]}>
+          <gridHelper args={[15, 30, '#f3f4f6', '#e5e7eb']} />
+          <meshStandardMaterial 
+            transparent
+            opacity={0.02}
+            wireframe
+          />
+        </mesh>
+      </group>
     </Float>
   );
 }
@@ -41,9 +200,23 @@ function Card3D({ children }: { children: React.ReactNode }) {
               <boxGeometry args={[4, 2, 0.2]} />
               <meshStandardMaterial 
                 color="#ffffff"
-                metalness={0.5}
-                roughness={0.2}
+                metalness={0.8}
+                roughness={0.1}
                 envMapIntensity={2}
+                transparent
+                opacity={0.9}
+              />
+            </mesh>
+            {/* Glass Effect */}
+            <mesh position={[0, 0, 0.11]}>
+              <planeGeometry args={[4, 2]} />
+              <meshStandardMaterial 
+                color="#ffffff"
+                metalness={0.9}
+                roughness={0.1}
+                transparent
+                opacity={0.1}
+                envMapIntensity={1}
               />
             </mesh>
           </group>
@@ -51,7 +224,12 @@ function Card3D({ children }: { children: React.ReactNode }) {
         <Environment preset="city" />
       </Canvas>
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        {children}
+        <div className="relative z-10 w-full h-full flex items-center justify-center">
+          <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-lg"></div>
+          <div className="relative z-20 text-center">
+            {children}
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -67,13 +245,17 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section with 3D Model */}
-      <section className="relative pt-32 pb-16 px-4 sm:px-6 lg:px-8 min-h-[80vh] flex items-center">
+      <section className="relative pt-32 pb-16 px-4 sm:px-6 lg:px-8 min-h-screen flex items-center">
         <div className="absolute inset-0 z-0">
-          <Canvas camera={{ position: [0, 0, 5] }}>
+          <Canvas camera={{ position: [0, 0, 8], fov: 45 }}>
             <Suspense fallback={null}>
               <Model />
               <OrbitControls enableZoom={false} />
-              <Environment preset="sunset" />
+              <Environment preset="city" />
+              <ambientLight intensity={0.5} />
+              <directionalLight position={[10, 10, 5]} intensity={0.5} />
+              <fog attach="fog" args={['#ffffff', 5, 20]} />
+              <color attach="background" args={['#ffffff']} />
             </Suspense>
           </Canvas>
         </div>
@@ -83,7 +265,7 @@ const Index = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
-              className="text-5xl md:text-7xl font-montserrat font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent"
+              className="text-5xl md:text-7xl font-montserrat font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent drop-shadow-lg"
             >
               Innovate with xDev Solutions
             </motion.h1>
@@ -91,7 +273,7 @@ const Index = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.3 }}
-              className="mt-6 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto"
+              className="mt-6 text-lg md:text-xl text-gray-700 max-w-3xl mx-auto drop-shadow-lg"
             >
               Transforming businesses through cutting-edge IT solutions and AI technologies. 
               We bring your digital vision to life.
@@ -104,7 +286,7 @@ const Index = () => {
             >
               <Link
                 to="/contact"
-                className="inline-flex items-center px-8 py-4 bg-white text-secondary rounded-lg font-medium hover:bg-secondary hover:text-white transition-all duration-500 group shadow-lg hover:shadow-xl"
+                className="inline-flex items-center px-8 py-4 bg-white text-secondary rounded-lg font-medium hover:bg-secondary hover:text-white transition-all duration-500 group shadow-lg hover:shadow-xl drop-shadow-lg"
               >
                 Get Started
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform duration-500" />
@@ -114,21 +296,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Stats Section with 3D Cards */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-transparent to-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-            {stats.map((stat, index) => (
-              <Card3D key={stat.label}>
-                <div className="text-center">
-                  <div className="text-2xl md:text-3xl font-bold text-primary mb-1">{stat.value}</div>
-                  <p className="text-sm md:text-base text-gray-600">{stat.label}</p>
-                </div>
-              </Card3D>
-            ))}
-          </div>
-        </div>
-      </section>
+     
 
       {/* Featured Services */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
@@ -219,12 +387,7 @@ const Index = () => {
   );
 };
 
-const stats = [
-  { value: '500+', label: 'Projects Completed', icon: '🎯' },
-  { value: '100+', label: 'Happy Clients', icon: '👥' },
-  { value: '50+', label: 'Team Members', icon: '👨‍💻' },
-  { value: '15+', label: 'Years Experience', icon: '⭐' },
-];
+
 
 const services = [
   {
