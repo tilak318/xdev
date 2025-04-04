@@ -1,6 +1,61 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { ArrowRight, Users, Code, Cloud, Shield, Zap, Target, Clock } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls, useGLTF, Float, PresentationControls, Environment } from '@react-three/drei';
+import { motion } from 'framer-motion';
+
+// 3D Model Component
+function Model() {
+  return (
+    <Float
+      speed={1.5}
+      rotationIntensity={1}
+      floatIntensity={2}
+      floatingRange={[0, 0.5]}
+    >
+      <mesh>
+        <torusKnotGeometry args={[1, 0.3, 128, 16]} />
+        <meshNormalMaterial />
+      </mesh>
+    </Float>
+  );
+}
+
+// 3D Card Component
+function Card3D({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="relative h-[300px] w-full transform-gpu transition-all duration-500 hover:scale-105">
+      <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
+        <ambientLight intensity={0.5} />
+        <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
+        <PresentationControls
+          global
+          zoom={0.8}
+          rotation={[0, -Math.PI / 4, 0]}
+          polar={[-Math.PI / 4, Math.PI / 4]}
+          azimuth={[-Math.PI / 4, Math.PI / 4]}
+        >
+          <group position={[0, 0, 0]}>
+            <mesh receiveShadow castShadow>
+              <boxGeometry args={[4, 2, 0.2]} />
+              <meshStandardMaterial 
+                color="#ffffff"
+                metalness={0.5}
+                roughness={0.2}
+                envMapIntensity={2}
+              />
+            </mesh>
+          </group>
+        </PresentationControls>
+        <Environment preset="city" />
+      </Canvas>
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        {children}
+      </div>
+    </div>
+  );
+}
 
 const Index = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -11,24 +66,42 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
+      {/* Hero Section with 3D Model */}
+      <section className="relative pt-32 pb-16 px-4 sm:px-6 lg:px-8 min-h-[80vh] flex items-center">
+        <div className="absolute inset-0 z-0">
+          <Canvas camera={{ position: [0, 0, 5] }}>
+            <Suspense fallback={null}>
+              <Model />
+              <OrbitControls enableZoom={false} />
+              <Environment preset="sunset" />
+            </Suspense>
+          </Canvas>
+        </div>
+        <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center">
-            <h1 className={`text-5xl md:text-7xl font-montserrat font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent transition-all duration-1000 transform ${
-              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-            }`}>
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+              className="text-5xl md:text-7xl font-montserrat font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent"
+            >
               Innovate with xDev Solutions
-            </h1>
-            <p className={`mt-6 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto transition-all duration-1000 delay-300 ${
-              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-            }`}>
+            </motion.h1>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.3 }}
+              className="mt-6 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto"
+            >
               Transforming businesses through cutting-edge IT solutions and AI technologies. 
               We bring your digital vision to life.
-            </p>
-            <div className={`mt-10 transition-all duration-1000 delay-500 ${
-              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-            }`}>
+            </motion.p>
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.6 }}
+              className="mt-10"
+            >
               <Link
                 to="/contact"
                 className="inline-flex items-center px-8 py-4 bg-white text-secondary rounded-lg font-medium hover:bg-secondary hover:text-white transition-all duration-500 group shadow-lg hover:shadow-xl"
@@ -36,31 +109,22 @@ const Index = () => {
                 Get Started
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform duration-500" />
               </Link>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Stats Section */}
+      {/* Stats Section with 3D Cards */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-transparent to-gray-50">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-16">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {stats.map((stat, index) => (
-              <div 
-                key={stat.label} 
-                className={`group bg-white rounded-xl p-4 md:p-5 shadow-lg hover:shadow-2xl transition-all duration-500 relative ${
-                  isVisible ? 'translate-y-0 opacity-100' : 'translate-y-[30px] opacity-0'
-                }`}
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-secondary/10 to-accent/5 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left rounded-xl"></div>
-                <div className="relative z-10 text-center">
-                  <div className="h-10 w-10 md:h-12 md:w-12 rounded-full bg-gradient-to-br from-primary/30 via-secondary/30 to-accent/30 flex items-center justify-center mx-auto mb-3 group-hover:bg-gradient-to-br group-hover:from-primary/40 group-hover:via-secondary/40 group-hover:to-accent/40 transition-all duration-500 group-hover:scale-110">
-                    <span className="text-xl md:text-2xl text-secondary group-hover:text-primary transition-colors duration-500">{stat.icon}</span>
-                  </div>
-                  <h3 className="text-2xl md:text-3xl font-bold text-primary group-hover:text-secondary transition-colors duration-500 mb-1">{stat.value}</h3>
-                  <p className="text-sm md:text-base text-gray-600 group-hover:text-gray-800 transition-colors duration-500">{stat.label}</p>
+              <Card3D key={stat.label}>
+                <div className="text-center">
+                  <div className="text-2xl md:text-3xl font-bold text-primary mb-1">{stat.value}</div>
+                  <p className="text-sm md:text-base text-gray-600">{stat.label}</p>
                 </div>
-              </div>
+              </Card3D>
             ))}
           </div>
         </div>
