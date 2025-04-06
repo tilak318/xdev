@@ -1,66 +1,82 @@
 import { useParams } from 'react-router-dom';
 import { projects } from '@/data/projects';
-import { motion } from 'framer-motion';
-import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import { Button } from '@/components/ui/button';
+import { ExternalLink, Github, ArrowLeft } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const ProjectDetails = () => {
   const { id } = useParams();
-  console.log('Current ID:', id);
-  console.log('Available projects:', projects);
+  const navigate = useNavigate();
   const project = projects.find(p => p.id === Number(id));
-  console.log('Found project:', project);
 
   if (!project) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-gray-900 to-black">
-        <h1 className="text-2xl text-gray-400">Project not found</h1>
+      <div className="container mx-auto px-4 py-16">
+        <h1 className="text-3xl font-bold">Project not found</h1>
       </div>
     );
   }
 
   return (
-    <motion.div 
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="min-h-screen py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-900 to-black text-white"
-    >
-      <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Project Image */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.2 }}
-            className="relative h-[400px] rounded-xl overflow-hidden"
-          >
-            <img
-              src={project.image}
-              alt={project.title}
-              className="w-full h-full object-cover"
-            />
-          </motion.div>
+    <div className="min-h-screen bg-gradient-to-br from-white to-gray-50 pt-16">
+      <div className="container mx-auto px-4 py-8">
+        {/* Back Button */}
+        <Button
+          variant="ghost"
+          className="mb-6 hover:bg-gray-100"
+          onClick={() => navigate('/portfolio')}
+        >
+          <ArrowLeft className="mr-2 h-4 w-4" />
+          Back to Portfolio
+        </Button>
 
-          {/* Project Info */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.3 }}
-          >
-            <h1 className="text-4xl font-bold mb-4">{project.title}</h1>
-            <div className="bg-blue-500/10 text-blue-400 px-4 py-2 rounded-full inline-block mb-6">
+        {/* Hero Section */}
+        <div className="relative h-[60vh] rounded-2xl overflow-hidden mb-12">
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-10" />
+          <img
+            src={project.image}
+            alt={project.title}
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute bottom-0 left-0 right-0 z-20 p-8 text-white">
+            <div className="inline-block px-4 py-2 bg-primary/90 rounded-full mb-4">
               {project.categoryName}
             </div>
-            <p className="text-gray-300 text-lg mb-8">{project.description}</p>
-            
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">{project.title}</h1>
+          </div>
+        </div>
+
+        {/* Content Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          {/* Main Content */}
+          <div className="lg:col-span-2">
+            <div className="bg-white rounded-2xl p-8 shadow-lg">
+              <h2 className="text-2xl font-bold mb-6">Project Overview</h2>
+              <p className="text-gray-700 mb-8">{project.description}</p>
+
+              {project.features && (
+                <>
+                  <h3 className="text-xl font-bold mb-4">Key Features</h3>
+                  <ul className="list-disc list-inside space-y-2 text-gray-700 mb-8">
+                    {project.features.map((feature, index) => (
+                      <li key={index}>{feature}</li>
+                    ))}
+                  </ul>
+                </>
+              )}
+            </div>
+          </div>
+
+          {/* Sidebar */}
+          <div className="space-y-6">
             {/* Technologies */}
-            <div className="mb-8">
-              <h3 className="text-xl font-semibold mb-4">Technologies Used</h3>
-              <div className="flex flex-wrap gap-3">
+            <div className="bg-white rounded-2xl p-8 shadow-lg">
+              <h3 className="text-xl font-bold mb-4">Technologies Used</h3>
+              <div className="flex flex-wrap gap-2">
                 {project.technologies.map((tech, index) => (
                   <span
                     key={index}
-                    className="bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm"
+                    className="px-3 py-1 bg-gray-100 rounded-full text-sm"
                   >
                     {tech}
                   </span>
@@ -68,47 +84,46 @@ const ProjectDetails = () => {
               </div>
             </div>
 
-            {/* Features */}
-            {project.features && (
-              <div className="mb-8">
-                <h3 className="text-xl font-semibold mb-4">Key Features</h3>
-                <ul className="list-disc list-inside space-y-2 text-gray-300">
-                  {project.features.map((feature, index) => (
-                    <li key={index}>{feature}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
-
             {/* Links */}
-            <div className="flex gap-4">
-              {project.githubLink && (
-                <a
-                  href={project.githubLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 bg-gray-800 hover:bg-gray-700 transition-colors px-6 py-3 rounded-lg text-white"
-                >
-                  <FaGithub className="text-xl" />
-                  <span>View Code</span>
-                </a>
-              )}
-              {project.demoLink && (
-                <a
-                  href={project.demoLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 transition-colors px-6 py-3 rounded-lg text-white"
-                >
-                  <FaExternalLinkAlt className="text-xl" />
-                  <span>Live Demo</span>
-                </a>
-              )}
+            <div className="bg-white rounded-2xl p-8 shadow-lg">
+              <h3 className="text-xl font-bold mb-4">Project Links</h3>
+              <div className="space-y-3">
+                {project.link && (
+                  <Button
+                    variant="outline"
+                    className="w-full justify-start"
+                    onClick={() => window.open(project.link, '_blank')}
+                  >
+                    <ExternalLink className="mr-2 h-4 w-4" />
+                    Visit Website
+                  </Button>
+                )}
+                {project.demoLink && (
+                  <Button
+                    variant="outline"
+                    className="w-full justify-start"
+                    onClick={() => window.open(project.demoLink, '_blank')}
+                  >
+                    <ExternalLink className="mr-2 h-4 w-4" />
+                    Live Demo
+                  </Button>
+                )}
+                {project.githubLink && (
+                  <Button
+                    variant="outline"
+                    className="w-full justify-start"
+                    onClick={() => window.open(project.githubLink, '_blank')}
+                  >
+                    <Github className="mr-2 h-4 w-4" />
+                    View Source
+                  </Button>
+                )}
+              </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 
