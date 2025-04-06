@@ -26,11 +26,12 @@ const ProjectDetails = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white pt-4">
-      <div className="container max-w-6xl mx-auto px-4 py-4">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white pt-12"> {/* Reduced from pt-20 to pt-12 */}
+      <div className="container max-w-6xl mx-auto px-4 py-4 md:px-6 md:py-6"> {/* Reduced from md:px-8 md:py-8 to md:px-6 md:py-6 */}
+        
         {/* Back Button */}
         <Button
-          className="mb-6 gap-2 px-6 py-2.5 bg-gradient-to-r from-primary to-secondary text-white rounded-full hover:shadow-lg transition-all duration-300 hover:scale-[1.02]"
+          className="mb-6 md:mb-7 gap-2 px-6 py-2.5 bg-gradient-to-r from-primary to-secondary text-white rounded-full hover:shadow-lg transition-all duration-300 hover:scale-[1.02]" // Reduced from md:mb-8 to md:mb-7
           onClick={() => navigate('/portfolio')}
         >
           <ArrowLeft className="h-4 w-4" />
@@ -38,7 +39,7 @@ const ProjectDetails = () => {
         </Button>
 
         {/* Hero Section */}
-        <div className="relative h-[60vh] rounded-2xl overflow-hidden mb-8">
+        <div className="relative h-[60vh] rounded-2xl overflow-hidden mb-8 md:mb-10"> {/* Reduced from md:mb-12 to md:mb-10 */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent z-10" />
           <img
             src={project.image}
@@ -51,9 +52,9 @@ const ProjectDetails = () => {
         </div>
         
         {/* Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-10"> {/* Reduced from md:gap-12 to md:gap-10 */}
           {/* Main Content */}
-          <div className="lg:col-span-2 space-y-6">
+          <div className="lg:col-span-2 space-y-6 md:space-y-7"> {/* Reduced from md:space-y-8 to md:space-y-7 */}
             <div className="bg-white rounded-2xl p-8 shadow-lg">
               <h2 className="text-2xl font-montserrat font-bold mb-6 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
                 Project Overview
@@ -77,7 +78,7 @@ const ProjectDetails = () => {
           </div>
 
           {/* Sidebar */}
-          <div className="space-y-6">
+          <div className="space-y-6 md:space-y-7"> {/* Reduced from md:space-y-8 to md:space-y-7 */}
             {/* Technologies */}
             <div className="bg-white rounded-2xl p-8 shadow-lg">
               <h3 className="text-xl font-montserrat font-bold mb-4 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
