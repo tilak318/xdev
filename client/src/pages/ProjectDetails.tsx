@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { projects } from '@/data/projects';
 import { Button } from '@/components/ui/button';
@@ -7,6 +8,11 @@ import { useNavigate } from 'react-router-dom';
 const ProjectDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [id]);
+  
   const project = projects.find(p => p.id === Number(id));
 
   if (!project) {
@@ -20,7 +26,7 @@ const ProjectDetails = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white pt-16">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white pt-8">
       <div className="container max-w-6xl mx-auto px-4 py-8">
         {/* Back Button */}
         <Button
