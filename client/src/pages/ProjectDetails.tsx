@@ -26,11 +26,11 @@ const ProjectDetails = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white pt-8">
-      <div className="container max-w-6xl mx-auto px-4 py-8">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white pt-4">
+      <div className="container max-w-6xl mx-auto px-4 py-4">
         {/* Back Button */}
         <Button
-          className="mb-8 gap-2 px-6 py-2.5 bg-gradient-to-r from-primary to-secondary text-white rounded-full hover:shadow-lg transition-all duration-300 hover:scale-[1.02]"
+          className="mb-6 gap-2 px-6 py-2.5 bg-gradient-to-r from-primary to-secondary text-white rounded-full hover:shadow-lg transition-all duration-300 hover:scale-[1.02]"
           onClick={() => navigate('/portfolio')}
         >
           <ArrowLeft className="h-4 w-4" />
@@ -38,7 +38,7 @@ const ProjectDetails = () => {
         </Button>
 
         {/* Hero Section */}
-        <div className="relative h-[60vh] rounded-2xl overflow-hidden mb-12">
+        <div className="relative h-[60vh] rounded-2xl overflow-hidden mb-8">
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent z-10" />
           <img
             src={project.image}
@@ -46,13 +46,10 @@ const ProjectDetails = () => {
             className="w-full h-full object-cover"
           />
           <div className="absolute bottom-0 left-0 right-0 z-20 p-8 text-white">
-            <div className="inline-block px-4 py-2 bg-gradient-to-r from-primary to-secondary rounded-full mb-4 shadow-lg">
-              {project.categoryName}
-            </div>
             <h1 className="text-4xl md:text-5xl font-montserrat font-bold mb-4 drop-shadow-lg">{project.title}</h1>
           </div>
         </div>
-
+        
         {/* Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Main Content */}
