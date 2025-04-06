@@ -1,14 +1,26 @@
 import { Card } from "@/components/ui/card";
 import { ExternalLink, Github } from 'lucide-react';
 import type { Project } from '@/data/projects';
+import { useNavigate } from 'react-router-dom';
 
 interface ProjectCardProps {
   project: Project;
 }
 
 export const ProjectCard = ({ project }: ProjectCardProps) => {
+  const navigate = useNavigate();
+
+  const handleCardClick = (e: React.MouseEvent) => {
+    // Prevent navigation if clicking on links
+    if ((e.target as HTMLElement).closest('a')) return;
+    navigate(`/portfolio/${project.id}`);
+  };
+
   return (
-    <Card className="h-full group relative overflow-hidden rounded-xl border-0 shadow-lg hover:shadow-xl transition-all duration-500">
+    <Card 
+      className="h-full group relative overflow-hidden rounded-xl border-0 shadow-lg hover:shadow-xl transition-all duration-500 cursor-pointer"
+      onClick={handleCardClick}
+    >
       {/* Image Container */}
       <div className="relative h-64 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10" />
@@ -57,28 +69,25 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
       </div>
 
       {/* Content */}
-      <div className="relative p-6 bg-white">
-        <h3 className="text-xl font-montserrat font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors duration-300">
+      <div className="p-6">
+        <h3 className="text-xl font-semibold mb-2 text-gray-900 group-hover:text-primary transition-colors duration-300">
           {project.title}
         </h3>
-        
-        <p className="text-gray-600 mb-4 line-clamp-2">
+        <p className="text-gray-600 line-clamp-3">
           {project.description}
         </p>
-
-        {/* Technologies */}
-        <div className="flex flex-wrap gap-2">
-          {project.technologies.slice(0, 3).map(tech => (
+        <div className="mt-4 flex flex-wrap gap-2">
+          {project.technologies.slice(0, 3).map((tech, index) => (
             <span 
-              key={tech}
-              className="px-3 py-1 text-xs font-medium text-gray-700 bg-gray-100 rounded-full"
+              key={index}
+              className="px-3 py-1 text-xs font-medium text-gray-600 bg-gray-100 rounded-full"
             >
               {tech}
             </span>
           ))}
           {project.technologies.length > 3 && (
-            <span className="px-3 py-1 text-xs font-medium text-gray-700 bg-gray-100 rounded-full">
-              +{project.technologies.length - 3}
+            <span className="px-3 py-1 text-xs font-medium text-gray-600 bg-gray-100 rounded-full">
+              +{project.technologies.length - 3} more
             </span>
           )}
         </div>
