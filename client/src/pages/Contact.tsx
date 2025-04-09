@@ -150,27 +150,28 @@ const Contact = () => {
     setIsSubmitting(true);
     
     try {
+      console.log('Sending data:', formData);
       const response = await fetch('http://localhost:5000/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-        }),
+        mode: 'cors', // Add this
+        body: JSON.stringify(formData),
       });
-
+  
+      const data = await response.json();
+      
       if (!response.ok) {
-        throw new Error('Failed to send message');
+        throw new Error(data.message || 'Failed to send message');
       }
-
+  
       toast({
-        title: "Message Sent",
-        description: "Thanks for reaching out! We'll get back to you shortly.",
+        title: "Success!",
+        description: "Your message has been sent successfully.",
       });
-
+  
+      // Clear form
       setFormData({
         name: "",
         email: "",
@@ -179,9 +180,10 @@ const Contact = () => {
         message: "",
       });
     } catch (error) {
+      console.error('Form submission error:', error); // Debug log
       toast({
         title: "Error",
-        description: "Failed to send message. Please try again.",
+        description: error instanceof Error ? error.message : "Failed to send message. Please try again.",
         variant: "destructive",
       });
     } finally {
