@@ -39,9 +39,9 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
 
         {/* Project Links */}
         <div className="absolute bottom-4 right-4 z-20 flex gap-3">
-          {project.demoLink && (
+          {(project.demoLink || project.link) && (
             <a
-              href={project.demoLink}
+              href={project.demoLink || project.link}
               target="_blank"
               rel="noopener noreferrer"
               className="group/demo p-2 rounded-full bg-white/10 backdrop-blur-sm hover:bg-gradient-to-r hover:from-primary hover:to-secondary hover:scale-110 transition-all duration-300"

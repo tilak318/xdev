@@ -86,15 +86,15 @@ export const projects: Project[] = [
     ]
   },
   {
-    "id": 5,
-    "title": "Shadow Mind - AI Social Media Tools",
-    "description": "An intelligent social media analytics and content planning platform that leverages AI to provide brand analysis and content calendars. Helps businesses optimize their social media strategy with data-driven insights.",
-    "image": "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
-    "category": "web",
-    "categoryName": "Web Application",
-    "technologies": ["React", "TypeScript", "Flask", "Python", "Langchain", "TailwindCSS"],
-    "demoLink": "https://shadowmind.onrender.com",
-    "features": [
+    id: 5,
+    title: "Shadow Mind - AI Social Media Tools",
+    description: "An intelligent social media analytics and content planning platform that leverages AI to provide brand analysis and content calendars. Helps businesses optimize their social media strategy with data-driven insights.",
+    image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
+    category: "ai",
+    categoryName: "AI & ML",
+    technologies: ["React", "TypeScript", "Flask", "Python", "Langchain", "TailwindCSS"],
+    demoLink: "https://shadowmind.onrender.com",
+    features: [
       "Brand social media presence analysis",
       "Platform usage and audience insights",
       "Content strategy evaluation",
