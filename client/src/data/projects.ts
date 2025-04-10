@@ -86,22 +86,21 @@ export const projects: Project[] = [
     ]
   },
   {
-    id: 5,
-    title: "EcoCommerce Platform",
-    description: "A sustainable e-commerce platform that focuses on eco-friendly products and carbon-neutral shipping. Includes features for tracking environmental impact and supporting sustainable vendors.",
-    image: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
-    category: "web",
-    categoryName: "Web Application",
-    technologies: ["Next.js", "TypeScript", "Stripe", "PostgreSQL", "Redis", "TailwindCSS"],
-    demoLink: "https://ecocommerce.demo.com",
-    githubLink: "https://github.com/example/ecocommerce",
-    features: [
-      "Carbon footprint tracking for orders",
-      "Sustainable vendor verification system",
-      "Eco-friendly product certification",
-      "Green shipping options",
-      "Environmental impact dashboard",
-      "Community marketplace features"
+    "id": 5,
+    "title": "Shadow Mind - AI Social Media Tools",
+    "description": "An intelligent social media analytics and content planning platform that leverages AI to provide brand analysis and content calendars. Helps businesses optimize their social media strategy with data-driven insights.",
+    "image": "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
+    "category": "web",
+    "categoryName": "Web Application",
+    "technologies": ["React", "TypeScript", "Flask", "Python", "Langchain", "TailwindCSS"],
+    "demoLink": "https://shadowmind.onrender.com",
+    "features": [
+      "Brand social media presence analysis",
+      "Platform usage and audience insights",
+      "Content strategy evaluation",
+      "Sentiment analysis for social posts",
+      "AI-powered content calendar generation",
+      "Customized content planning by industry"
     ]
   },
   {
