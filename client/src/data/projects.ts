@@ -105,21 +105,37 @@ export const projects: Project[] = [
   },
   {
     id: 6,
-    title: "DevOps Automation Suite",
-    description: "A comprehensive DevOps automation platform that streamlines CI/CD pipelines, automates testing, and manages deployments across multiple environments.",
-    image: "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
-    category: "automation",
-    categoryName: "DevOps",
-    technologies: ["Jenkins", "Docker", "Kubernetes", "Python", "Ansible", "GitLab CI"],
-    demoLink: "https://devops-suite.demo.com",
-    githubLink: "https://github.com/example/devops-suite",
+    title: "StartupSpark - AI Idea Validator",
+    description: "An AI-powered startup idea validation platform that provides comprehensive analysis of business ideas through market research, ecosystem analysis, business model evaluation, and investment potential assessment.",
+    image: "https://images.unsplash.com/photo-1617791160536-598cf32026fb?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
+    category: "ai",
+    categoryName: "AI & ML",
+    technologies: ["Python", "LangChain", "LLMs", "React", "REST API"],
+    link: "https://startupsparkai.onrender.com",
     features: [
-      "Automated CI/CD pipeline management",
-      "Infrastructure provisioning automation",
-      "Container orchestration",
-      "Automated testing and quality checks",
-      "Release management automation",
-      "Performance monitoring and alerts"
+      "AI-powered startup idea validation",
+      "Market research and analysis",
+      "Ecosystem and competitor evaluation",
+      "Business model assessment",
+      "Investment potential analysis",
+      "Comprehensive validation report generation"
+    ]
+  },
+  {
+    id: 7,
+    title: "NourishWise AI - Personalized Nutrition Assistant",
+    description: "Personalized nutrition guidance crafted by experts to help you achieve your health goals with elegance and precision. This AI agent suggests diet plans based on patients' health situations.",
+    image: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
+    category: "ai",
+    categoryName: "AI & ML",
+    technologies: ["AI", "Nutrition", "Health", "React", "Node.js"],
+    link: "https://nourishwiseai.onrender.com",
+    features: [
+      "Personalized diet recommendations",
+      "Health goal tracking",
+      "Nutrition expert knowledge base",
+      "Interactive meal planning",
+      "Health progress monitoring"
     ]
   }
 ];
