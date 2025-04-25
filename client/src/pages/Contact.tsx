@@ -234,8 +234,8 @@ const Contact = () => {
                     </div>
                     <div>
                       <h3 className="font-semibold text-primary mb-1">Email</h3>
-                      <p className="text-gray-600">info@xdevsolutions.com</p>
-                      <p className="text-gray-600">support@xdevsolutions.com</p>
+                      <p className="text-gray-600">xdevsolutions@gmail.com</p>
+                      {/* <p className="text-gray-600">support@xdevsolutions.com</p> */}
                     </div>
                   </div>
                 </CardContent>
@@ -249,8 +249,9 @@ const Contact = () => {
                     </div>
                     <div>
                       <h3 className="font-semibold text-primary mb-1">Phone</h3>
-                      <p className="text-gray-600">+1 (555) 123-4567</p>
-                      <p className="text-gray-600">+1 (555) 765-4321</p>
+                      <p className="text-gray-600">+1 (548) 881-3773 (CANADA)</p>
+                      <p className="text-gray-600">+91 82381 69574 (INDIA)</p>
+                      <p className="text-gray-600">+91 98253 40963 (INDIA)</p>
                     </div>
                   </div>
                 </CardContent>
@@ -264,13 +265,14 @@ const Contact = () => {
                     </div>
                     <div>
                       <h3 className="font-semibold text-primary mb-1">Location</h3>
-                      <p className="text-gray-600">123 Innovation Drive</p>
-                      <p className="text-gray-600">San Francisco, CA 94105</p>
+                      <p className="text-gray-600">312, LEMON GRASS CRESCENT, KITCHENER
+                      </p>
+                      <p className="text-gray-600"> N2N3R5 ON, CANADA</p>
                     </div>
                   </div>
                 </CardContent>
               </Card>
-              
+{/*               
               <Card className="overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-300">
                 <CardContent className="p-6">
                   <div className="flex items-start">
@@ -284,7 +286,7 @@ const Contact = () => {
                     </div>
                   </div>
                 </CardContent>
-              </Card>
+              </Card> */}
             </div>
           </div>
 
