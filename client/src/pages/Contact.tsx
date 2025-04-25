@@ -301,7 +301,7 @@ const Contact = () => {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    placeholder="John Doe"
+                    placeholder="your name"
                     required
                     className="transition-all duration-300 focus:ring-2 focus:ring-secondary/50 hover:border-secondary/50"
                   />
@@ -315,7 +315,7 @@ const Contact = () => {
                     type="email"
                     value={formData.email}
                     onChange={handleChange}
-                    placeholder="john@example.com"
+                    placeholder="your email"
                     required
                     className="transition-all duration-300 focus:ring-2 focus:ring-secondary/50 hover:border-secondary/50"
                   />
@@ -329,7 +329,7 @@ const Contact = () => {
                     type="tel"
                     value={formData.phone}
                     onChange={handleChange}
-                    placeholder="+1 (555) 123-4567"
+                    placeholder="your phone number"
                     required
                     className="transition-all duration-300 focus:ring-2 focus:ring-secondary/50 hover:border-secondary/50"
                   />
