@@ -431,26 +431,26 @@ const values = [
 
 const team = [
   {
-    name: "Alex Johnson",
+    name: "Pruthvi Viradiya",
     role: "CEO & Founder",
     bio: "Tech visionary with 15+ years of experience in software development and IT leadership.",
     photo: "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
   },
   {
-    name: "Sarah Chen",
+    name: "Alex Johnson",
     role: "CTO",
     bio: "AI specialist and software architect with a focus on scalable enterprise solutions.",
     photo: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
   },
   {
-    name: "Michael Rodriguez",
-    role: "Lead Developer",
+    name: "Tilak Viradiya",
+    role: "AI Engineer",
     bio: "Full-stack developer with expertise in React, Node.js, and cloud infrastructure.",
     photo: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
   },
   {
-    name: "Priya Patel",
-    role: "UX/UI Designer",
+    name: "Keyur Moradiya",
+    role: "Lead Developer",
     bio: "Creative designer passionate about crafting intuitive and beautiful user experiences.",
     photo: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
   },
