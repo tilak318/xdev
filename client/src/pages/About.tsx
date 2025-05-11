@@ -434,25 +434,25 @@ const team = [
     name: "Pruthvi Viradiya",
     role: "CEO & Founder",
     bio: "Visionary leader driving xDev's strategic direction and growth.",
-    photo: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60", // New placeholder male image 1
+    photo: "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
   },
   {
     name: "Alex Johnson",
     role: "CTO",
     bio: "Leads technology strategy, specializing in AI and scalable solutions.",
-    photo: "https://images.unsplash.com/photo-1500048993953-d23a436266cf?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60", // New placeholder male image 2
+    photo: "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
   },
   {
     name: "Tilak Viradiya",
     role: "AI Engineer",
     bio: "Develops cutting-edge AI solutions; full-stack expert.",
-    photo: "https://images.unsplash.com/photo-1499996860823-5214fcc65f8f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60", // New placeholder male image 3
+    photo: "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
   },
   {
     name: "Keyur Moradiya",
     role: "Lead Developer",
     bio: "Guides development, crafting intuitive and beautiful user experiences.",
-    photo: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60", // New placeholder male image 4
+    photo: "https://images.unsplash.com/photo-1530268729831-4b0b9e170218?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60", // New placeholder male image
   },
 ];
 
