@@ -278,7 +278,7 @@ const About = () => {
       {/* 3D Background */}
       <div className="absolute inset-0 z-0">
         <Canvas camera={{ 
-          position: isMobile ? [0, 0, 12] : [0, 0, 8], 
+          position: isMobile ? [0, 0, 18] : [0, 0, 12], // Increased z-values further
           fov: isMobile ? 60 : 45 
         }}>
           <Suspense fallback={null}>
@@ -434,25 +434,25 @@ const team = [
     name: "Pruthvi Viradiya",
     role: "CEO & Founder",
     bio: "Visionary leader driving xDev's strategic direction and growth.",
-    photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60", // Placeholder male image 1
+    photo: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60", // New placeholder male image 1
   },
   {
     name: "Alex Johnson",
     role: "CTO",
     bio: "Leads technology strategy, specializing in AI and scalable solutions.",
-    photo: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60", // Placeholder male image 2
+    photo: "https://images.unsplash.com/photo-1500048993953-d23a436266cf?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60", // New placeholder male image 2
   },
   {
     name: "Tilak Viradiya",
     role: "AI Engineer",
     bio: "Develops cutting-edge AI solutions; full-stack expert.",
-    photo: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60", // Placeholder male image 3
+    photo: "https://images.unsplash.com/photo-1499996860823-5214fcc65f8f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60", // New placeholder male image 3
   },
   {
     name: "Keyur Moradiya",
     role: "Lead Developer",
     bio: "Guides development, crafting intuitive and beautiful user experiences.",
-    photo: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60", // Placeholder male image 4
+    photo: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60", // New placeholder male image 4
   },
 ];
 
