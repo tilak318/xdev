@@ -9,7 +9,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: ['https://xdev.onrender.com', 'http://localhost:8080'], // Allow both production and development
+  origin: ['https://xdev.onrender.com', 'http://localhost:8080', 'https://xdevsolutions.com'], // Allow both production and development
   methods: ['GET', 'POST'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 }));
