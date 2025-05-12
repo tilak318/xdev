@@ -15,20 +15,20 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: 1,
-    title: "AI Newsletter Generator",
-    description: "An innovative AI-powered newsletter platform that automatically generates comprehensive newsletters about artificial intelligence. Built by xDev Solutions, this platform leverages advanced AI agents to curate, analyze, and present the latest AI news, trends, and insights in a digestible newsletter format.",
-    image: "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
-    category: "ai",
-    categoryName: "AI & ML",
-    technologies: ["Python", "Groq", "LangChain", "Seaper", "React", "REST API"],
-    link: "https://ainewsletter.onrender.com",
+    title: "UnderTheArch Portfolio",
+    description: "A dynamic architectural portfolio platform showcasing UnderTheArch's innovative designs and projects. The platform includes comprehensive features like interior cost estimation, career opportunities, blog management, and an advanced admin panel for content management. It serves as both a portfolio and a complete business management solution.",
+    image: "https://images.unsplash.com/photo-1431576901776-e539bd916ba2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
+    category: "web",
+    categoryName: "Web Application",
+    technologies: ["React", "Node.js", "Express", "MongoDB", "TailwindCSS", "Framer Motion"],
+    link: "https://underthearch.in",
     features: [
-      "AI-powered content generation and curation",
-      "Automated newsletter compilation and formatting",
-      "Intelligent topic selection and categorization",
-      "Customizable newsletter templates",
-      "Real-time AI news aggregation",
-      "User-friendly subscription management"
+      "Interactive interior cost calculator",
+      "Dynamic blog management system",
+      "Career portal with application tracking",
+      "Comprehensive admin dashboard",
+      "Project portfolio showcase",
+      "Contact and inquiry management"
     ]
   },
   {
@@ -69,20 +69,20 @@ export const projects: Project[] = [
   },
   {
     id: 4,
-    title: "UnderTheArch Portfolio",
-    description: "A dynamic architectural portfolio platform showcasing UnderTheArch's innovative designs and projects. The platform includes comprehensive features like interior cost estimation, career opportunities, blog management, and an advanced admin panel for content management. It serves as both a portfolio and a complete business management solution.",
-    image: "https://images.unsplash.com/photo-1431576901776-e539bd916ba2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
-    category: "web",
-    categoryName: "Web Application",
-    technologies: ["React", "Node.js", "Express", "MongoDB", "TailwindCSS", "Framer Motion"],
-    link: "https://underthearch.in",
+    title: "AI Newsletter Generator",
+    description: "An innovative AI-powered newsletter platform that automatically generates comprehensive newsletters about artificial intelligence. Built by xDev Solutions, this platform leverages advanced AI agents to curate, analyze, and present the latest AI news, trends, and insights in a digestible newsletter format.",
+    image: "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
+    category: "ai",
+    categoryName: "AI & ML",
+    technologies: ["Python", "Groq", "LangChain", "Seaper", "React", "REST API"],
+    link: "https://ainewsletter.onrender.com",
     features: [
-      "Interactive interior cost calculator",
-      "Dynamic blog management system",
-      "Career portal with application tracking",
-      "Comprehensive admin dashboard",
-      "Project portfolio showcase",
-      "Contact and inquiry management"
+      "AI-powered content generation and curation",
+      "Automated newsletter compilation and formatting",
+      "Intelligent topic selection and categorization",
+      "Customizable newsletter templates",
+      "Real-time AI news aggregation",
+      "User-friendly subscription management"
     ]
   },
   {
