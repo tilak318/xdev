@@ -75,7 +75,7 @@ export const projects: Project[] = [
     category: "web",
     categoryName: "Web Application",
     technologies: ["React", "Node.js", "Express", "MongoDB", "TailwindCSS", "Framer Motion"],
-    link: "https://underthearch.onrender.com",
+    link: "https://underthearch.in",
     features: [
       "Interactive interior cost calculator",
       "Dynamic blog management system",
