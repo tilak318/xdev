@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin, ArrowRight, Send } from "lucide-react";
+import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -12,7 +13,8 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
-            <h3 className="text-2xl font-montserrat font-bold mb-6 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
+            <h3 className="text-2xl font-montserrat font-bold mb-6 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent flex items-center gap-3">
+              <img src='/logox.png' alt="xDev Logo" className="h-8 w-8" />
               xDev Solutions
             </h3>
             <p className="text-gray-600 mb-6">
@@ -38,7 +40,7 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-montserrat font-bold mb-6 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">Quick Links</h3>
             <ul className="space-y-3">
-              {['Home', 'Services', 'Portfolio', 'About', 'Contact'].map((item) => (
+              {["Home", "Services", "Portfolio", "About", "Contact"].map((item) => (
                 <li key={item} className="group transition-transform duration-300 hover:-translate-y-1">
                   <Link 
                     to={`/${item.toLowerCase() === 'home' ? '' : item.toLowerCase()}`} 
@@ -52,7 +54,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Services */}
+          {/* Services (now just a list, no links) */}
           <div>
             <h3 className="text-xl font-montserrat font-bold mb-6 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">Our Services</h3>
             <ul className="space-y-3">
@@ -64,36 +66,20 @@ const Footer = () => {
                 'AI Solutions',
                 'IT Consulting'
               ].map((service) => (
-                <li key={service} className="group transition-transform duration-300 hover:-translate-y-1">
-                  <Link to="/services" className="flex items-center space-x-2">
-                    <ArrowRight size={16} className="text-secondary group-hover:text-primary transition-colors duration-300" />
-                    <span className="text-gray-600 group-hover:text-primary transition-colors duration-300">{service}</span>
-                  </Link>
+                <li key={service} className="flex items-center space-x-2 group transition-transform duration-300 hover:-translate-y-1">
+                  <ArrowRight size={16} className="text-secondary group-hover:text-primary transition-colors duration-300" />
+                  <span className="text-gray-600 group-hover:text-primary transition-colors duration-300">{service}</span>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Newsletter */}
+          {/* Social Media Links (moved up, no newsletter) */}
           <div>
-            <h3 className="text-xl font-montserrat font-bold mb-6 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">Newsletter</h3>
+            <h3 className="text-xl font-montserrat font-bold mb-6 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">Connect with Us</h3>
             <p className="text-gray-600 mb-4">
-              Subscribe to our newsletter for updates on the latest tech trends.
+              Follow us on social media for updates on the latest tech trends.
             </p>
-            <div className="flex">
-              <input 
-                type="email" 
-                placeholder="Your email" 
-                className="px-4 py-2 rounded-l-md focus:outline-none focus:ring-2 focus:ring-secondary/50 flex-grow bg-white border border-gray-200 text-gray-600 placeholder:text-gray-400"
-              />
-              <Button 
-                className="rounded-l-none bg-gradient-to-r from-primary to-secondary text-white hover:shadow-lg hover:scale-[1.02] transition-all duration-300"
-              >
-                <Send size={18} className="group-hover:translate-x-1 transition-transform duration-300" />
-              </Button>
-            </div>
-            
-            {/* Social Media Links */}
             <div className="flex items-center space-x-4 mt-6">
               {[Facebook, Twitter, Instagram, Linkedin].map((Icon, index) => (
                 <a 
