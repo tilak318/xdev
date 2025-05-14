@@ -265,9 +265,9 @@ const Contact = () => {
                     </div>
                     <div>
                       <h3 className="font-semibold text-primary mb-1">Location</h3>
-                      <p className="text-gray-600">312, LEMON GRASS CRESCENT, KITCHENER
+                      <p className="text-gray-600">KITCHENER, ON, CANADA
                       </p>
-                      <p className="text-gray-600"> N2N3R5 ON, CANADA</p>
+                     
                     </div>
                   </div>
                 </CardContent>
