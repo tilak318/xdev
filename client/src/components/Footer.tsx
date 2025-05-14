@@ -27,7 +27,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-3 group">
                 <Mail size={18} className="text-secondary group-hover:text-primary transition-colors duration-300" />
-                <span className="text-gray-600 group-hover:text-primary transition-colors duration-300">xdevsolutions@gmail.com</span>
+                <span className="text-gray-600 group-hover:text-primary transition-colors duration-300">contact.xdevsolutions@gmail.com</span>
               </div>
               <div className="flex items-center space-x-3 group">
                 <MapPin size={18} className="text-secondary group-hover:text-primary transition-colors duration-300" />
