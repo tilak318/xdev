@@ -312,7 +312,7 @@ const About = () => {
           <div className={`transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
             <h2 className="text-2xl md:text-3xl font-montserrat font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent mb-6">Our Story</h2>
             <p className="text-gray-600 mb-4">
-              Founded in 2018, xDev Solutions was born from a simple yet powerful vision: to make cutting-edge technology accessible to businesses of all sizes. What started as a small team of passionate developers has grown into a comprehensive IT solutions provider trusted by clients worldwide.
+              Founded in 2022, xDev Solutions was born from a simple yet powerful vision: to make cutting-edge technology accessible to businesses of all sizes. What started as a small team of passionate developers has grown into a comprehensive IT solutions provider trusted by clients worldwide.
             </p>
             <p className="text-gray-600 mb-4">
               Our journey has been marked by constant innovation, learning, and growth. We've embraced emerging technologies like artificial intelligence, machine learning, and cloud computing to deliver solutions that not only meet current needs but anticipate future challenges.
@@ -434,25 +434,25 @@ const team = [
     name: "Pruthvi Viradiya",
     role: "CEO & Founder",
     bio: "Visionary leader driving xDev's strategic direction and growth.",
-    photo: "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
+    photo: "/team/PRUTHVI_VIRADIYA.jpg",
   },
   {
     name: "Alex Johnson",
     role: "CTO",
     bio: "Leads technology strategy, specializing in AI and scalable solutions.",
-    photo: "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
+    photo: "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
   },
   {
     name: "Tilak Viradiya",
     role: "AI Engineer",
     bio: "Develops cutting-edge AI solutions; full-stack expert.",
-    photo: "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
+    photo: "/team/TILAK_VIRADIYA.jpg",
   },
   {
     name: "Keyur Moradiya",
     role: "Lead Developer",
     bio: "Guides development, crafting intuitive and beautiful user experiences.",
-    photo: "https://images.unsplash.com/photo-1530268729831-4b0b9e170218?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60", // New placeholder male image
+    photo: "/team/KEYUR_MORADIYA.jpg",
   },
 ];
 
