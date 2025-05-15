@@ -452,7 +452,7 @@ const team = [
     name: "Keyur Moradiya",
     role: "Lead Developer",
     bio: "Guides development, crafting intuitive and beautiful user experiences.",
-    photo: "/team/KEYUR_MORADIYA.jpg",
+    photo: "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
   },
 ];
 
