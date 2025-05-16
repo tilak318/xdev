@@ -440,7 +440,7 @@ const team = [
     name: "Alex Johnson",
     role: "CTO",
     bio: "Leads technology strategy, specializing in AI and scalable solutions.",
-    photo: "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
+    photo: "/team/ALEX_JOHNSON.jpg",
   },
   {
     name: "Tilak Viradiya",
@@ -452,7 +452,7 @@ const team = [
     name: "Keyur Moradiya",
     role: "Lead Developer",
     bio: "Guides development, crafting intuitive and beautiful user experiences.",
-    photo: "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
+    photo: "/team/KEYUR_MORADIYA.png",
   },
 ];
 
