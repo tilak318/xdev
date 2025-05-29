@@ -63,16 +63,15 @@ const Footer = () => {
               Follow us on social media for updates on the latest tech trends.
             </p>
             <div className="flex items-center space-x-4 mt-6">
-              {[Facebook, Twitter, Instagram, Linkedin].map((Icon, index) => (
-                <a 
-                  key={index}
-                  href="#" 
-                  className="w-9 h-9 rounded-full bg-gradient-to-br from-primary/30 via-secondary/30 to-accent/30 flex items-center justify-center hover:bg-gradient-to-br hover:from-primary/40 hover:via-secondary/40 hover:to-accent/40 group transition-all duration-300 hover:scale-110"
-                  aria-label="Social media"
-                >
-                  <Icon size={18} className="text-secondary group-hover:text-primary transition-colors duration-300" />
-                </a>
-              ))}
+              <a
+                href="https://www.instagram.com/xdevsolutions"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-full bg-gradient-to-br from-primary/30 via-secondary/30 to-accent/30 flex items-center justify-center hover:bg-gradient-to-br hover:from-primary/40 hover:via-secondary/40 hover:to-accent/40 group transition-all duration-300 hover:scale-110"
+                aria-label="Follow us on Instagram"
+              >
+                <Instagram size={18} className="text-secondary group-hover:text-primary transition-colors duration-300" />
+              </a>
             </div>
           </div>
         </div>
