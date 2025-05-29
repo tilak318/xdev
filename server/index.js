@@ -2,18 +2,38 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
+const nodemailer = require('nodemailer');
 
 dotenv.config();
 
 const app = express();
 
-// Middleware
-app.use(cors({
-  origin: ['https://xdev.onrender.com', 'http://localhost:8080', 'https://xdevsolutions.com'], // Allow both production and development
-  methods: ['GET', 'POST'],
+// CORS Configuration
+const corsOptions = {
+  origin: ['https://xdev.onrender.com', 'http://localhost:8080', 'https://xdevsolutions.com'],
+  methods: ['GET', 'POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
-}));
+  credentials: true,
+  optionsSuccessStatus: 200
+};
+
+// Apply CORS middleware with options
+app.use(cors(corsOptions));
 app.use(express.json());
+
+// Pre-flight requests
+app.options('*', cors(corsOptions));
+
+// Nodemailer transporter setup
+const transporter = nodemailer.createTransport({
+  host: 'smtp.hostinger.com', // Hostinger SMTP server
+  port: 465,
+  secure: true,
+  auth: {
+    user: process.env.EMAIL_USER, // Your Hostinger email
+    pass: process.env.EMAIL_PASS  // Your Hostinger email password
+  }
+});
 
 // MongoDB Connection
 mongoose.connect(process.env.MONGODB_URI, {
@@ -48,16 +68,67 @@ const contactSchema = new mongoose.Schema({
 
 const Contact = mongoose.model('Contact', contactSchema);
 
+// Function to send email
+const sendEmail = async (contactData) => {
+  const { name, email, phone, subject, message } = contactData;
+  
+  const mailOptions = {
+    from: process.env.EMAIL_USER,
+    to: 'contact@xdevsolutions.com',
+    subject: `New Contact Form Submission: ${subject}`,
+    html: `
+      <h2>New Contact Form Submission</h2>
+      <p><strong>Name:</strong> ${name}</p>
+      <p><strong>Email:</strong> ${email}</p>
+      <p><strong>Phone:</strong> ${phone}</p>
+      <p><strong>Subject:</strong> ${subject}</p>
+      <h3>Message:</h3>
+      <p>${message}</p>
+      <hr>
+      <p>This email was sent from your website's contact form.</p>
+    `
+  };
+
+  return transporter.sendMail(mailOptions);
+};
+
+// Health Check Route
+app.get('/api/health', (req, res) => {
+  const dbStatus = mongoose.connection.readyState;
+  // 0 = disconnected, 1 = connected, 2 = connecting, 3 = disconnecting
+  
+  const healthStatus = {
+    server: 'healthy',
+    timestamp: new Date().toISOString(),
+    mongodb: dbStatus === 1 ? 'connected' : 'disconnected',
+    status: dbStatus === 1 ? 'ok' : 'error'
+  };
+
+  if (healthStatus.status === 'ok') {
+    console.log('API Health Check: API is healthy');
+    return res.status(200).json(healthStatus);
+  } else {
+    console.error('API Health Check: Error connecting to server or database');
+    return res.status(503).json(healthStatus);
+  }
+});
+
 // Routes
 app.post('/api/contact', async (req, res) => {
   try {
-    console.log('Received contact form data:', req.body); // Debug log
+    console.log('Received contact form data:', req.body);
     const { name, email, phone, subject, message } = req.body;
+    
+    // Save to database
     const newContact = new Contact({ name, email, phone, subject, message });
     await newContact.save();
+    
+    // Send email
+    await sendEmail(req.body);
+    
     res.status(201).json({ message: 'Message sent successfully!' });
   } catch (error) {
-    console.error('Server error:', error); // Debug log
+    console.error('Server error:', error);
     res.status(500).json({ message: 'Error sending message', error: error.message });
   }
 });
