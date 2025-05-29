@@ -234,8 +234,8 @@ const Contact = () => {
                     </div>
                     <div>
                       <h3 className="font-semibold text-primary mb-1">Email</h3>
-                      <p className="text-gray-600">contact.xdevsolutions@gmail.com</p>
-                      {/* <p className="text-gray-600">support@xdevsolutions.com</p> */}
+                      {/* <p className="text-gray-600">contact.xdevsolutions@.com</p> */}
+                      <p className="text-gray-600">contact@xdevsolutions.com</p>
                     </div>
                   </div>
                 </CardContent>
@@ -249,9 +249,9 @@ const Contact = () => {
                     </div>
                     <div>
                       <h3 className="font-semibold text-primary mb-1">Phone</h3>
-                      <p className="text-gray-600">+1 (548) 881-3773 (CANADA)</p>
-                      <p className="text-gray-600">+91 82381 69574 (INDIA)</p>
-                      <p className="text-gray-600">+91 98253 40963 (INDIA)</p>
+                      <p className="text-gray-600">+91 63591 85945 (India)</p>
+                      <p className="text-gray-600">+91 82381 69574 (India)</p>
+                      <p className="text-gray-600">+91 98253 40963 (India)</p>
                     </div>
                   </div>
                 </CardContent>
@@ -265,7 +265,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <h3 className="font-semibold text-primary mb-1">Location</h3>
-                      <p className="text-gray-600">KITCHENER, ON, CANADA
+                      <p className="text-gray-600">Surat, Gujarat
                       </p>
                      
                     </div>

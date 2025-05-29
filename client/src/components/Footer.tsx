@@ -23,15 +23,15 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center space-x-3 group">
                 <Phone size={18} className="text-secondary group-hover:text-primary transition-colors duration-300" />
-                <span className="text-gray-600 group-hover:text-primary transition-colors duration-300">+1 (548) 881-3773</span>
+                <a href="tel:+916359185945" className="text-gray-600 group-hover:text-primary transition-colors duration-300">+91 63591 85945</a>
               </div>
               <div className="flex items-center space-x-3 group">
                 <Mail size={18} className="text-secondary group-hover:text-primary transition-colors duration-300" />
-                <span className="text-gray-600 group-hover:text-primary transition-colors duration-300">contact.xdevsolutions@gmail.com</span>
+                <a href="mailto:contact@xdevsolutions.com" className="text-gray-600 group-hover:text-primary transition-colors duration-300">contact@xdevsolutions.com</a>
               </div>
               <div className="flex items-center space-x-3 group">
                 <MapPin size={18} className="text-secondary group-hover:text-primary transition-colors duration-300" />
-                <span className="text-gray-600 group-hover:text-primary transition-colors duration-300">312, Lemon Grass Crescent, Kitchener, Canada</span>
+                <span className="text-gray-600 group-hover:text-primary transition-colors duration-300">Surat, Gujarat</span>
               </div>
             </div>
           </div>
