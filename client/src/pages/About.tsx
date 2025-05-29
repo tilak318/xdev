@@ -369,7 +369,7 @@ const About = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {team.map((member, index) => (
               <div 
                 key={member.name} 
@@ -435,12 +435,6 @@ const team = [
     role: "CEO & Founder",
     bio: "Visionary leader driving xDev's strategic direction and growth.",
     photo: "/team/PRUTHVI_VIRADIYA.jpg",
-  },
-  {
-    name: "Alex Johnson",
-    role: "CTO",
-    bio: "Leads technology strategy, specializing in AI and scalable solutions.",
-    photo: "/team/ALEX_JOHNSON.jpg",
   },
   {
     name: "Tilak Viradiya",
