@@ -10,7 +10,7 @@ const Footer = () => {
     <footer className="bg-gradient-to-br from-white to-gray-50 text-gray-700 pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Company Info */}
           <div>
             <h3 className="text-2xl font-montserrat font-bold mb-6 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent flex items-center gap-3">
@@ -34,24 +34,6 @@ const Footer = () => {
                 <span className="text-gray-600 group-hover:text-primary transition-colors duration-300">Surat, Gujarat</span>
               </div>
             </div>
-          </div>
-
-          {/* Quick Links */}
-          <div>
-            <h3 className="text-xl font-montserrat font-bold mb-6 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">Quick Links</h3>
-            <ul className="space-y-3">
-              {["Home", "Services", "Portfolio", "About", "Contact"].map((item) => (
-                <li key={item} className="group transition-transform duration-300 hover:-translate-y-1">
-                  <Link 
-                    to={`/${item.toLowerCase() === 'home' ? '' : item.toLowerCase()}`} 
-                    className="flex items-center space-x-2"
-                  >
-                    <ArrowRight size={16} className="text-secondary group-hover:text-primary transition-colors duration-300" />
-                    <span className="text-gray-600 group-hover:text-primary transition-colors duration-300">{item}</span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
           </div>
 
           {/* Services (now just a list, no links) */}
@@ -102,12 +84,6 @@ const Footer = () => {
               &copy; {currentYear} xDev Solutions. All rights reserved.
             </p>
             <div className="mt-4 md:mt-0 flex space-x-6">
-              <Link to="/privacy" className="text-sm text-gray-600 hover:text-primary transition-colors duration-300">
-                Privacy Policy
-              </Link>
-              <Link to="/terms" className="text-sm text-gray-600 hover:text-primary transition-colors duration-300">
-                Terms of Service
-              </Link>
               <Link to="/sitemap" className="text-sm text-gray-600 hover:text-primary transition-colors duration-300">
                 Sitemap
               </Link>
