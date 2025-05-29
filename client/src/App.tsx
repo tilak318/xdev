@@ -3,7 +3,8 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Suspense } from "react";
+import { Suspense, useEffect } from "react";
+import { checkApiHealth, getApiBaseUrl } from "@/lib/utils";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
@@ -21,6 +22,28 @@ const queryClient = new QueryClient();
 
 const AppContent = () => {
   const { isMobileMenuOpen } = useMobileMenu();
+
+  // Perform API health check when component mounts
+  useEffect(() => {
+    const checkHealth = async () => {
+      try {
+        const baseUrl = getApiBaseUrl();
+        console.log(`Checking API health at ${baseUrl}/api/health`);
+        const healthStatus = await checkApiHealth();
+        console.log('API Health Status:', healthStatus);
+      } catch (error) {
+        console.error('Failed to check API health:', error);
+      }
+    };
+    
+    checkHealth();
+    
+    // Set up interval to check health every 5 minutes
+    const healthInterval = setInterval(checkHealth, 5 * 60 * 1000);
+    
+    // Clean up interval on component unmount
+    return () => clearInterval(healthInterval);
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-white to-gray-50 flex flex-col">

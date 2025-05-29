@@ -139,33 +139,67 @@ const Contact = () => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    if (name === "phone") {
+      // Allow digits, +, (), -, and space. Remove anything else.
+      const sanitizedValue = value.replace(/[^0-9+()\-\s]/g, '');
+      setFormData((prev) => ({
+        ...prev,
+        [name]: sanitizedValue,
+      }));
+    } else {
+      setFormData((prev) => ({
+        ...prev,
+        [name]: value,
+      }));
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!formData.email || !emailRegex.test(formData.email)) {
+      toast({
+        title: "Invalid Email",
+        description: "Please enter a valid email address.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    // Phone number validation (check for 7-15 digits after removing non-digit characters)
+    const phoneDigits = formData.phone.replace(/\D/g, '');
+    if (!formData.phone || phoneDigits.length < 7 || phoneDigits.length > 15) {
+      toast({
+        title: "Invalid Phone Number",
+        description: "Please enter a valid phone number (must contain 7-15 digits).",
+        variant: "destructive",
+      });
+      return;
+    }
+
     setIsSubmitting(true);
     
     try {
       console.log('Sending data:', formData);
-      // const response = await fetch('http://localhost:5000/api/contact', {
-      const response = await fetch('https://xdev-server.onrender.com/api/contact', {
+      const response = await fetch('http://localhost:5002/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Accept': 'application/json',
         },
+        credentials: 'include',
         mode: 'cors',
         body: JSON.stringify(formData),
       });
   
-      const data = await response.json();
-      
       if (!response.ok) {
-        throw new Error(data.message || 'Failed to send message');
+        const errorData = await response.json().catch(() => ({ message: 'Network response was not ok' }));
+        throw new Error(errorData.message || `HTTP error! status: ${response.status}`);
       }
+      
+      const data = await response.json();
   
       toast({
         title: "Success!",
@@ -181,7 +215,7 @@ const Contact = () => {
         message: "",
       });
     } catch (error) {
-      console.error('Form submission error:', error); // Debug log
+      console.error('Form submission error:', error);
       toast({
         title: "Error",
         description: error instanceof Error ? error.message : "Failed to send message. Please try again.",
