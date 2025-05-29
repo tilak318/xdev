@@ -84,7 +84,7 @@ const Footer = () => {
               &copy; {currentYear} xDev Solutions. All rights reserved.
             </p>
             <div className="mt-4 md:mt-0 flex space-x-6">
-              <Link to="/sitemap" className="text-sm text-gray-600 hover:text-primary transition-colors duration-300">
+              <Link to="/sitemap.xml" className="text-sm text-gray-600 hover:text-primary transition-colors duration-300">
                 Sitemap
               </Link>
             </div>
