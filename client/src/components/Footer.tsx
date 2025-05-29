@@ -23,11 +23,11 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center space-x-3 group">
                 <Phone size={18} className="text-secondary group-hover:text-primary transition-colors duration-300" />
-                <a href="tel:+916359185945" className="text-gray-600 group-hover:text-primary transition-colors duration-300">+91 63591 85945</a>
+                <a href="tel:+916359185945" target="_blank" rel="noopener noreferrer" className="text-gray-600 group-hover:text-primary transition-colors duration-300">+91 63591 85945</a>
               </div>
               <div className="flex items-center space-x-3 group">
                 <Mail size={18} className="text-secondary group-hover:text-primary transition-colors duration-300" />
-                <a href="mailto:contact@xdevsolutions.com" className="text-gray-600 group-hover:text-primary transition-colors duration-300">contact@xdevsolutions.com</a>
+                <a href="mailto:contact@xdevsolutions.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 group-hover:text-primary transition-colors duration-300">contact@xdevsolutions.com</a>
               </div>
               <div className="flex items-center space-x-3 group">
                 <MapPin size={18} className="text-secondary group-hover:text-primary transition-colors duration-300" />
