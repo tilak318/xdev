@@ -16,8 +16,8 @@ export interface ApiHealthStatus {
 // Determine API base URL based on environment
 export const getApiBaseUrl = (): string => {
   return window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
-    ? 'https://xdev-server.onrender.com'
-    : 'http://localhost:5000';
+    ? 'http://localhost:5000'
+    : 'https://xdev-server.onrender.com';
 };
 
 // Check API health status
