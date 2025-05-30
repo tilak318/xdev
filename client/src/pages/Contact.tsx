@@ -9,6 +9,7 @@ import { useToast } from "@/hooks/use-toast";
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Float, PresentationControls, Environment } from '@react-three/drei';
 import { Suspense } from 'react';
+import { getApiBaseUrl } from "@/lib/utils";
 
 // 3D Model Component for Services
 function ServicesModel() {
@@ -183,7 +184,7 @@ const Contact = () => {
     
     try {
       console.log('Sending data:', formData);
-      const response = await fetch('http://localhost:5002/api/contact', {
+      const response = await fetch(`${getApiBaseUrl()}/api/contact`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
