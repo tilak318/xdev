@@ -10,7 +10,7 @@ const app = express();
 
 // CORS Configuration
 const corsOptions = {
-  origin: ['https://xdev.onrender.com', 'http://localhost:8080', 'https://xdevsolutions.com'],
+  origin: ['https://xdevsolutions.com','https://xdev.onrender.com', 'http://localhost:8080'],
   methods: ['GET', 'POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
