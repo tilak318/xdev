@@ -32,6 +32,23 @@ export const projects: Project[] = [
     ]
   },
   {
+    id: 8,
+    title: "JP Sales Corporation",
+    description: "JP Sales Corporation is a leading steel manufacturer, part of a multinational conglomerate. This website presents their extensive product range, manufacturing capabilities, and corporate information.",
+    image: "https://images.unsplash.com/photo-1697698532634-ea59b636ccea?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    category: "web",
+    categoryName: "Web Application",
+    technologies: ["HTML", "CSS", "JavaScript", "React", "Node.js"],
+    link: "http://jpsalescorporation.com",
+    features: [
+      "Product catalog and specifications",
+      "Information about manufacturing processes",
+      "Company profile and history",
+      "Contact information and inquiry forms",
+      "News and updates section"
+    ]
+  },
+  {
     id: 2,
     title: "WatchInsight Analytics Platform",
     description: "A comprehensive luxury watch market analysis platform offering real-time price calculations and market insights. The platform enables users to evaluate their timepieces, explore market trends, and stay updated with the latest watch news and developments.",
